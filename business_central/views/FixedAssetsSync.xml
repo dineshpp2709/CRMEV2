@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_fixed_assets_sync_final" model="ir.actions.act_window">
+            <field name="name">Fixed Assets Sync</field>
+            <field name="res_model">maintenance.equipment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('bc_eqs_state','in',['done'])]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Synced Fixed Assets 
+                </p>
+            </field>
+        </record>
+        
+        <record id="action_fixed_assets_sync" model="ir.actions.act_window">
+            <field name="name">Fixed Assets Sync</field>
+            <field name="res_model">maintenance.equipment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain"></field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Fixed Assets 
+                </p>
+            </field>
+        </record>
+
+        <record id="action_fixed_assets_sync_pending" model="ir.actions.act_window">
+            <field name="name">Pending Fixed Assets</field>
+            <field name="res_model">maintenance.equipment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('bc_eqs_state','in',['pending'])]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Pending Fixed Assets to Sync
+                </p>
+            </field>
+        </record>
+
+        <record id="action_fixed_assets_sync_done" model="ir.actions.act_window">
+            <field name="name">Synced Fixed Assets</field>
+            <field name="res_model">maintenance.equipment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('bc_eqs_state','in',['done'])]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Synced Fixed Assets 
+                </p>
+            </field>
+        </record>
+
+        <record id="action_fixed_assets_sync_failed" model="ir.actions.act_window">
+            <field name="name">Fixed Assets </field>
+            <field name="res_model">maintenance.equipment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('bc_eqs_state','in',['fail'])]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Failed Fixed Assets 
+                </p>
+            </field>
+        </record>
+
+
+        <!-- Logs Views -->
+        <record id="action_fixed_assets_sync_logs" model="ir.actions.act_window">
+        <field name="name">Fixed Assets Sync Logs</field>
+        <field name="res_model">business_central.fixed_assets_logs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain"></field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Fixed Assets Sync Logs
+            </p>
+        </field>
+    </record>
+
+    <record id="fixed_assets_sync_logs_form_view" model="ir.ui.view">
+        <field name="name">Fixed Assets Sync Logs</field>
+        <field name="model">business_central.fixed_assets_logs</field>
+        <field name="arch" type="xml">
+            <form string="Logs">
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <span><field name="ref"/></span>
+                    <group col="1">
+                        <field name="message" nolabel="1"/>
+                        <field name="request" nolabel="1" attrs="{'invisible':[('debug_mode','=',False)]}" />
+                        <field name="debug_mode" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="fixed_assets_sync_logs_tree">
+        <field name="name">Fixed Assets Sync Logs</field>
+        <field name="model">business_central.fixed_assets_logs</field>
+        <field name="arch" type="xml">
+            <tree string="Logs">
+                <field name="create_date"/>
+                <field name="name"/>
+                <field name="message"/>
+                <field name="ref"/>   
+            </tree>
+        </field>
+    </record>
+
+    <!-- End -->
+    </data>
+</odoo>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+   <data noupdate="1">
+   		<record id="customer_sync_integration" model="school_net.integrations">
+            <field name="name">Customer Sync: Business Central</field>
+            <field name="process" ref="model_res_partner"></field>
+            <field name="logs" ref="model_business_central_customer_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_customer_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">cs</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="shipping_address_integration" model="school_net.integrations">
+            <field name="name">Shipping Address Sync: Business Central</field>
+            <field name="process" ref="model_res_partner"></field>
+            <field name="logs" ref="model_business_central_shipping_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_shipping_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">sha</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="salesperson_integration" model="school_net.integrations">
+            <field name="name">Sales Person Sync: Business Central</field>
+            <field name="process" ref="model_res_partner"></field>
+            <field name="logs" ref="model_business_central_salesperson_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_salesperson"/>
+            <field name="module">business_central</field>
+            <field name="process_code">sp</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="vendor_integration" model="school_net.integrations">
+            <field name="name">Vendor Sync: Business Central</field>
+            <field name="process" ref="model_res_partner"></field>
+            <field name="logs" ref="model_business_central_vendor_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_salesperson"/>
+            <field name="module">business_central</field>
+            <field name="process_code">vs</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="vendor_address_integration" model="school_net.integrations">
+            <field name="name">Vendor Address Sync: Business Central</field>
+            <field name="process" ref="model_res_partner"></field>
+            <field name="logs" ref="model_business_central_vendor_address_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_vendor_address_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">vas</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="location_integration" model="school_net.integrations">
+            <field name="name">Location Sync: Business Central</field>
+            <field name="process" ref="model_res_partner"></field>
+            <field name="logs" ref="model_business_central_location_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_location_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">ls</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="item_integration" model="school_net.integrations">
+            <field name="name">Product Sync: Business Central</field>
+            <field name="process" ref="product.model_product_template"></field>
+            <field name="logs" ref="model_business_central_product_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_product_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">ps</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="sale_order_integration" model="school_net.integrations">
+            <field name="name">Sale Order Sync: Business Central</field>
+            <field name="process" ref="business_central.model_business_central_sale_order_staging"></field>
+            <field name="logs" ref="model_business_central_sale_order_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_sale_order_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">sos</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="purchase_order_integration" model="school_net.integrations">
+            <field name="name">Purchase Order Sync: Business Central</field>
+            <field name="process" ref="model_purchase_order"></field>
+            <field name="logs" ref="model_business_central_purchase_order_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_purchase_order_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">pos</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="bom_integration" model="school_net.integrations">
+            <field name="name">Bom Sync: Business Central</field>
+            <field name="process" ref="model_mrp_bom"></field>
+            <field name="logs" ref="model_business_central_bom_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_bom_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">bs</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="expense_integration" model="school_net.integrations">
+            <field name="name">Expense Sync: Business Central</field>
+            <field name="process" ref="model_hr_expense_sheet"></field>
+            <field name="logs" ref="model_business_central_expense_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_expense_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">exs</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="invoice_integration" model="school_net.integrations">
+            <field name="name">Invoice Sync: Business Central</field>
+            <field name="process" ref="model_account_move"></field>
+            <field name="logs" ref="model_business_central_invoice_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_invoice_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">ios</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="posted_expense_integration" model="school_net.integrations">
+            <field name="name">Posted Expense Sync: Business Central</field>
+            <field name="process" ref="hr_expense.model_hr_expense_sheet"></field>
+            <field name="logs" ref="model_business_central_posted_expense_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_posted_expense_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">eps</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="paid_expense_integration" model="school_net.integrations">
+            <field name="name">Paid Expense Sync: Business Central</field>
+            <field name="process" ref="hr_expense.model_hr_expense_sheet"></field>
+            <field name="logs" ref="model_business_central_paid_expense_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_paid_expense_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">epas</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="terms_conditions_integration" model="school_net.integrations">
+            <field name="name">Terms &amp; Conditions Sync: Business Central</field>
+            <field name="process" ref="school_net.model_school_net_purchase_terms"></field>
+            <field name="logs" ref="model_business_central_purchase_terms_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_terms_conditions_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">tnc</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+        
+        <record id="serial_number_integration" model="school_net.integrations">
+            <field name="name">Serial Number Sync: Business Central</field>
+            <field name="process" ref="model_business_central_sale_order_line_staging"></field>
+            <field name="logs" ref="model_business_central_serial_number_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_serial_number_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">sns</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+        
+        <record id="availbale_stock_integration" model="school_net.integrations">
+            <field name="name">Available Stock Sync: Business Central</field>
+            <field name="process" ref="school_net.model_school_net_available_stock"></field>
+            <field name="logs" ref="model_business_central_available_stock_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_available_stock_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">ss</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="component_integration" model="school_net.integrations">
+            <field name="name">Components Sync: Business Central</field>
+            <field name="process" ref="stock.model_stock_production_lot"></field>
+            <field name="logs" ref="model_business_central_component_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_component_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">cps</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="parts_integration" model="school_net.integrations">
+            <field name="name">Parts Sync: Business Central</field>
+            <field name="process" ref="stock.model_stock_production_lot"></field>
+            <field name="logs" ref="model_business_central_parts_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_parts_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">ps</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="equipment_integration" model="school_net.integrations">
+            <field name="name">Equipments Sync: Business Central</field>
+            <field name="process" ref="maintenance.model_maintenance_equipment"></field>
+            <field name="logs" ref="model_business_central_fixed_assets_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_equiments_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">eqs</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+
+        <record id="assets_transfer_integration" model="school_net.integrations">
+            <field name="name">Equipments Transfer and Dispose Sync: Business Central</field>
+            <field name="process" ref="maintenance.model_maintenance_equipment"></field>
+            <field name="logs" ref="model_business_central_fixed_transfer_assets_logs"></field>
+            <field name="cron_job" ref="business_central.cron_bc_assets_transfer_sync"/>
+            <field name="module">business_central</field>
+            <field name="process_code">ats</field>
+            <field name="sequence">1</field>
+            <field name="type">BC</field>
+        </record>
+        
+   </data>
+</odoo>

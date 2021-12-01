@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_vendor_sync_final" model="ir.actions.act_window">
+            <field name="name">Vendor Sync</field>
+            <field name="res_model">res.partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('parent_id','=',False),('type','=','contact'),('bc_vs_state','in',['done']),('snet_vendor_code','!=',False)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Synced Contacts
+                </p>
+            </field>
+        </record>
+        
+        <record id="action_vendor_sync" model="ir.actions.act_window">
+            <field name="name">Vendor Sync</field>
+            <field name="res_model">res.partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('parent_id','=',False),('type','=','contact'),('snet_vendor_code','!=',False)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Contacts
+                </p>
+            </field>
+        </record>
+
+        <record id="action_vendor_sync_pending" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="res_model">res.partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('parent_id','=',False),('type','=','contact'),('bc_vs_state','in',['pending']),('snet_vendor_code','!=',False)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Pending Contacts to Sync
+                </p>
+            </field>
+        </record>
+
+        <record id="action_vendor_sync_done" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="res_model">res.partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('parent_id','=',False),('type','=','contact'),('bc_vs_state','in',['done'])]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Synced Contacts
+                </p>
+            </field>
+        </record>
+
+        <record id="action_vendor_sync_failed" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="res_model">res.partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('parent_id','=',False),('type','=','contact'),('bc_vs_state','in',['fail']),('snet_vendor_code','!=',False)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Failed Contacts
+                </p>
+            </field>
+        </record>
+
+
+        <!-- Logs Views -->
+        <record id="action_vendor_sync_logs" model="ir.actions.act_window">
+        <field name="name">Vendor sync Logs</field>
+        <field name="res_model">business_central.vendor_logs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain"></field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Vendor Sync Logs
+            </p>
+        </field>
+    </record>
+
+    <record id="vendor_sync_logs_form_view" model="ir.ui.view">
+        <field name="name">Vendor Sync Logs</field>
+        <field name="model">business_central.vendor_logs</field>
+        <field name="arch" type="xml">
+            <form string="Logs">
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <span><field name="ref"/></span>
+                    <group col="1">
+                        <field name="message" nolabel="1"/>
+                        <field name="request" nolabel="1" attrs="{'invisible':[('debug_mode','=',False)]}" />
+                        <field name="debug_mode" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="vendor_sync_logs_tree">
+        <field name="name">Vendor Sync Logs</field>
+        <field name="model">business_central.vendor_logs</field>
+        <field name="arch" type="xml">
+            <tree string="Logs">
+                <field name="create_date"/>
+                <field name="name"/>
+                <field name="message"/>
+                <field name="ref"/>   
+            </tree>
+        </field>
+    </record>
+
+    <!-- End -->
+    </data>
+</odoo>
+    

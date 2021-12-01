@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_school_net" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.bc</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="school_net.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='business_central']" position="after">
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div>
+                            <label for="bc_username"/>
+                            <field name="bc_username" />
+                        </div>
+                        <div>
+                            <label for="bc_password" />
+                            <field name="bc_password" />
+                        </div>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <div class="row mt16 o_settings_container">
+                        <group>
+                            <label for="bc_base_url" string="Base URL"/>
+                            <field name="bc_base_url" colspan="5" nolabel="1"/>
+                        </group>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
